@@ -1,6 +1,9 @@
 package list_structure
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 type Stack struct {
 	stackElements []int
@@ -18,10 +21,13 @@ func (stack *Stack) Push(element int) {
 	stack.stackElements = append(stack.stackElements, element)
 }
 
-func (stack *Stack) Pop() (element int) {
+func (stack *Stack) Pop() (element int, err error) {
+	if len(stack.stackElements) == 0 {
+		return 0, errors.New("empty error")
+	}
 	element = stack.stackElements[len(stack.stackElements)-1]
 	stack.stackElements = stack.stackElements[0 : len(stack.stackElements)-1]
-	return element
+	return element, nil
 }
 
 func (stack *Stack) Size() (length int) {
