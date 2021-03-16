@@ -21,6 +21,8 @@ func TestBinarySortedTree_Add(t *testing.T) {
 	tree.Add(node6)
 	tree.Add(node7)
 
-	tree.Show()
+	tree.ShowFront()
+	tree.ShowMid()
+	tree.ShowBack()
 
 }

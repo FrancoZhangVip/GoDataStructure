@@ -50,19 +50,60 @@ func (tree *BinarySortedTree) Add(node *BSTNode) {
 	SearchIndex(tree.root, node)
 }
 
-func ShowTreeNode(node *BSTNode) {
-	if node.lChild != nil {
-		ShowTreeNode(node.lChild)
-	}
+//先序遍历
+func ShowTreeFrontNode(node *BSTNode) {
 	fmt.Print(node.value, "\t")
+	if node.lChild != nil {
+		ShowTreeFrontNode(node.lChild)
+	}
 	if node.rChild != nil {
-		ShowTreeNode(node.rChild)
+		ShowTreeFrontNode(node.rChild)
 	}
 }
 
-func (tree *BinarySortedTree) Show() {
+func (tree *BinarySortedTree) ShowFront() {
+	fmt.Println("先序遍历")
 	if tree.root != nil {
-		ShowTreeNode(tree.root)
+		ShowTreeFrontNode(tree.root)
+		fmt.Println()
+	}
+}
+
+//中序遍历
+func ShowTreeMidNode(node *BSTNode) {
+	if node.lChild != nil {
+		ShowTreeMidNode(node.lChild)
+	}
+	fmt.Print(node.value, "\t")
+	if node.rChild != nil {
+		ShowTreeMidNode(node.rChild)
+	}
+}
+
+func (tree *BinarySortedTree) ShowMid() {
+	fmt.Println("中序遍历")
+	if tree.root != nil {
+		ShowTreeMidNode(tree.root)
+		fmt.Println()
+	}
+}
+
+//后序遍历
+func ShowTreeBackNode(node *BSTNode) {
+
+	if node.lChild != nil {
+		ShowTreeBackNode(node.lChild)
+	}
+	if node.rChild != nil {
+		ShowTreeBackNode(node.rChild)
+	}
+	fmt.Print(node.value, "\t")
+}
+
+func (tree *BinarySortedTree) ShowBack() {
+	fmt.Println("后序遍历")
+	if tree.root != nil {
+		ShowTreeBackNode(tree.root)
 		fmt.Println()
 	}
 }
