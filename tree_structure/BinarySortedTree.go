@@ -107,3 +107,29 @@ func (tree *BinarySortedTree) ShowBack() {
 		fmt.Println()
 	}
 }
+
+func SearchBSTNode(node *BSTNode, val int) *BSTNode {
+	if node.value == val {
+		return node
+	}
+	if node.value > val && node.lChild != nil {
+		return SearchBSTNode(node.lChild, val)
+	}
+	if node.value <= val && node.rChild != nil {
+		return SearchBSTNode(node.rChild, val)
+	}
+	/*if node.value > val && node.lChild == nil {
+		return nil
+	}
+	if node.value <= val && node.rChild == nil {
+		return nil
+	}*/
+	return nil
+}
+
+func (tree *BinarySortedTree) Search(val int) (node *BSTNode) {
+	if tree.root != nil {
+		return SearchBSTNode(tree.root, val)
+	}
+	return nil
+}
