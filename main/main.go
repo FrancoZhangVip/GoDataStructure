@@ -1,10 +1,10 @@
 package main
 
 import (
-	"fmt"
+	"GoDataStructure/algorithm_init"
 )
 
 func main() {
-	fmt.Println("Hello !!!")
-
+	s := "aab"
+	println("Test 5 is: ", algorithm_init.LengthOfLongestSubstring(s))
 }
