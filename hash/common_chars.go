@@ -32,7 +32,7 @@ func CommonChars(words []string) []string {
 	}
 
 	for j := 0; j < set_size; j++ {
-		min := len(words) * 26
+		min := len(words) * set_size
 		for i := 0; i < len(words); i++ {
 			if res_set[i][j] < min {
 				min = res_set[i][j]
