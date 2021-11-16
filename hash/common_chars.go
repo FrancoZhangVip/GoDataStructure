@@ -39,7 +39,7 @@ func CommonChars(words []string) []string {
 			}
 		}
 		if min != 0 {
-			item := string('a' + j)
+			item := string(rune(int('a') + j))
 			for k := 0; k < min; k++ {
 				res = append(res, item)
 			}
